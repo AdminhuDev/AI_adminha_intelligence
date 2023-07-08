@@ -1,8 +1,8 @@
 import os
 import time
+import openai
 from pyrogram import Client, filters
 from termcolor import colored
-import openai
 from dotenv import load_dotenv
 
 load_dotenv('.env')
