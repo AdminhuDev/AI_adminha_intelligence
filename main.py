@@ -50,8 +50,8 @@ def reply(client, message):
     conversas[message.chat.id] = historico
 
     # Imprime a conversa recente
-    print(colored(f"\nUsuário: {message.from_user.id} Mensagem: {message.text}", "red"))
-    print(colored(f"\nIA: {resposta}", "green"))
+    print(colored(f"\n\nUsuário: {message.from_user.id} Mensagem: {message.text}", "red"))
+    print(colored(f"\n\nIA: {resposta}", "green"))
     print(colored(f"\n\n{conversas}", "blue"))
 
     if "não entendi" in resposta.lower():
