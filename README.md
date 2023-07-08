@@ -50,7 +50,7 @@ OpenAI
 python-dotenv
 
 # ✍️ Autor
-[![Telegram](https://img.shields.io/badge/Telegram-blue?style=for-the-badge&logo=telegram&logoColor=white)](https://t.me/Analista_Adminhu) - Adminhu
+[![Telegram](https://img.shields.io/badge/Telegram-blue&logo=telegram&logoColor=white)](https://t.me/Analista_Adminhu) - Adminhu
 
 # 📚 Licença
 Este projeto está sob a licença MIT. Veja o arquivo [LICENSE](LICENSE) para mais detalhes.
