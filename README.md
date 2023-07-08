@@ -35,7 +35,7 @@ BOT_TOKEN=your_bot_token
 # 🎲 Rodando o bot
 Agora você pode rodar o bot:
 ```bash
-python3 main.py
+py main.py
 ```
 
 # 🧪 Testes
