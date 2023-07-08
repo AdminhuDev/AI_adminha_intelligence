@@ -59,5 +59,6 @@ def reply(client, message):
 
     message.reply_text(resposta)
 
-print(colored(f'Rodando - {me.first_name}', 'green'))
-app.run()
+if __name__ == '__main__':
+    print(colored(f'Rodando - {me.first_name}', 'green'))
+    app.run()
