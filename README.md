@@ -12,7 +12,7 @@ Para rodar o bot, você precisa seguir as seguintes etapas:
 
 ### 📦 Instalação
 
-1. Clone este repositório para sua máquina local usando `https://github.com/AdminhuDev/AI_adminha_intelligence.git`
+1. Clone este repositório para sua máquina local usando `https://github.com/AdminhuDev/Adminha_Intelligence.git`
 2. Instale as dependências do projeto utilizando o pip:
 
 ```bash
