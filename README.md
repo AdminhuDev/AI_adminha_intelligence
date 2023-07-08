@@ -1,4 +1,4 @@
-# 🤖 Meu Bot de IA
+# 🤖 Adminha Intelligence - Bot de IA
 
 Este é um bot de Telegram que utiliza a IA da OpenAI para responder às perguntas dos usuários. Ele foi projetado para fornecer respostas de maneira natural e eficaz.
 
