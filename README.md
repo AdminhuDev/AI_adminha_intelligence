@@ -20,8 +20,8 @@ pip install pyrogram termcolor openai python-dotenv
 ```
 
 # 🕹️ Configuração
-Crie um arquivo config.env na raiz do projeto.
-Adicione as seguintes variáveis ao config.env (substitua os valores pelos seus próprios):
+Crie um arquivo .env na raiz do projeto.
+Adicione as seguintes variáveis ao .env (substitua os valores pelos seus próprios):
 
 ```bash
 OPENAI_API_KEY=your_openai_key
@@ -29,8 +29,7 @@ API_ID=your_api_id
 API_HASH=your_api_hash
 BOT_TOKEN=your_bot_token
 ```
-
-### ⚠️ Importante: Nunca divulgue as chaves e tokens. Certifique-se de adicionar config.env ao seu .gitignore.
+### ⚠️ Importante: Nunca divulgue as chaves e tokens.
 
 # 🎲 Rodando o bot
 Agora você pode rodar o bot:
