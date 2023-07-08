@@ -14,7 +14,7 @@ api_id = os.getenv("API_ID")
 api_hash = os.getenv("API_HASH")
 bot_token = os.getenv('BOT_TOKEN')
 
-app = Client("@ai_adminha_intelligence_bot", bot_token=bot_token, api_id=api_id, api_hash=api_hash)
+app = Client("@nome-seu-bot", bot_token=bot_token, api_id=api_id, api_hash=api_hash)
 
 with app:
     me = app.get_me()
