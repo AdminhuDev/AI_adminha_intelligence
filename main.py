@@ -15,7 +15,7 @@ api_hash = os.getenv("API_HASH")
 bot_token = os.getenv('BOT_TOKEN')
 
 app = Client("@nome-seu-bot", bot_token=bot_token, api_id=api_id, api_hash=api_hash)
-
+# aline passou aqui
 with app:
     me = app.get_me()
 
