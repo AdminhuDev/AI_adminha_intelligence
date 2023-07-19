@@ -4,9 +4,9 @@ import openai
 from pyrogram import Client, filters
 from termcolor import colored
 from dotenv import load_dotenv
-
 load_dotenv('.env')
 
+# API OPEN_AI
 openai.api_key = os.getenv("OPENAI_API_KEY")
 
 # API TELEGRAM
@@ -60,5 +60,6 @@ def reply(client, message):
     message.reply_text(resposta)
 
 if __name__ == '__main__':
+    # Imprime se esta funcionando
     print(colored(f'Rodando - {me.first_name}', 'green'))
     app.run()
