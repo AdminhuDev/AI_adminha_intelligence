@@ -1,5 +1,5 @@
 import os
-import time
+import asyncio
 import openai
 from pyrogram import Client, filters
 from termcolor import colored
@@ -16,40 +16,42 @@ bot_token = os.getenv('BOT_TOKEN')
 
 app = Client("@nome-seu-bot", bot_token=bot_token, api_id=api_id, api_hash=api_hash)
 
-with app:
-    me = app.get_me()
-
 # Para manter um histórico de mensagens
 conversas = {}
 
 @app.on_message(filters.command("start"))
-def start(client, message):
-    message.reply_text(f"Olá {message.from_user.first_name}, seja bem-vindo ao nosso bot! Você pode começar a conversar agora.")
+async def start(client, message):
+    await message.reply_text(f"Olá {message.from_user.first_name}, seja bem-vindo ao nosso bot! Você pode começar a conversar agora.")
 
 @app.on_message(filters.text & filters.private)
-def reply(client, message):
-    # Pega a conversa atual baseado no chat_id
-    historico = conversas.get(message.chat.id, "")
+async def reply(client, message):
+    chat_id = message.chat.id
+    historico = conversas.get(chat_id, "")
 
-    # Atualiza o histórico da conversa com a mensagem mais recente
     historico += f" \nUsuário: {message.text}"
     
-    response = openai.Completion.create(
-      engine="text-davinci-003",
-      prompt=historico + "\nIA:",
-      max_tokens=150,
-      temperature=0.4,
-      top_p=1
-    )
+    try:
+        response = openai.Completion.create(
+            engine="text-davinci-003",
+            prompt=historico + "\nIA:",
+            max_tokens=150,
+            temperature=0.4,
+            top_p=1
+        )
+    except Exception as e:
+        await message.reply_text("Ocorreu um erro ao processar sua mensagem. Por favor, tente novamente mais tarde.")
+        print(colored(f"Erro ao chamar API OpenAI: {e}", "red"))
+        return
 
-    # Atualiza o histórico com a resposta da IA
     resposta = response.choices[0].text.strip()
     historico += f" \nIA: {resposta}"
 
-    # Guarda o histórico atualizado
-    conversas[message.chat.id] = historico
+    # Limita o histórico a um número máximo de caracteres para evitar problemas de performance
+    if len(historico) > 1000:
+        historico = historico[-1000:]
 
-    # Imprime a conversa recente
+    conversas[chat_id] = historico
+
     print(colored(f"\n\nUsuário: {message.from_user.id} Mensagem: {message.text}", "red"))
     print(colored(f"\n\nIA: {resposta}", "green"))
     print(colored(f"\n\n{conversas}", "blue"))
@@ -57,9 +59,8 @@ def reply(client, message):
     if "não entendi" in resposta.lower():
         resposta += "\n\nPor favor, poderia reformular a pergunta?"
 
-    message.reply_text(resposta)
+    await message.reply_text(resposta)
 
 if __name__ == '__main__':
-    # Imprime se esta funcionando
-    print(colored(f'Rodando - {me.first_name}', 'green'))
+    print(colored(f'Rodando - {app.name}', 'green'))
     app.run()
